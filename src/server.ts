@@ -1,15 +1,19 @@
-import express from 'express';
+import express from "express";
+import cors from 'cors';
+import routes from './routes';
+import path from 'path';
 
 const app = express();
 
-app.get('/users', (request, response) => {
-    console.log('Listagem de usuários');
+app.use(cors());
 
-    // response.send('Listagem de usuários');
-    response.json(
-        ['Alexandre', 'Lima', 'Rodrigues', 
-        'Juliana', 'Regina', 'Navarro']
-    );
-})
+app.use(express.json());
+app.use(express.text());
 
-app.listen(3333);
+app.use(routes);
+
+app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
+
+const porta = 3333;
+app.listen(porta);
+console.log("servidor ativo: ", "http://localhost:" + porta);

@@ -33,9 +33,27 @@ para rodar com watch
 npx ts-node-dev src/server.ts
 
 para não ficar rodando "npx ts-node-dev src/file.ts" toda hora, editar o package.json e adicionar um script para facilitar a vida
+"dev": "npx ts-node-dev src/server.ts"
 
-  "scripts": {
-    "dev": "npx ts-node-dev src/server.ts"
-  },
-para executar, rode
+para executar, rode:
 npm run dev
+
+
+knex é um framework sql para vários bancos conhecidos.
+http://knexjs.org/
+
+npm install knex
+npm install sqlite3
+
+npx knex migrate:latest --knexfile knexfile.ts migrate:latest
+
+criado script no package.json para facilitar:
+"migrate": "knex migrate:latest --knexfile knexfile.ts migrate:latest"
+
+agora basta chamar:
+npm run migrate
+
+CORS
+npm install cors 
+npm install @types/cors -D
+
