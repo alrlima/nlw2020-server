@@ -47,13 +47,24 @@ npm install sqlite3
 
 npx knex migrate:latest --knexfile knexfile.ts migrate:latest
 
-criado script no package.json para facilitar:
+criado script no package.json para facilitar a criação/atualização de estrutura de banco de dados:
 "migrate": "knex migrate:latest --knexfile knexfile.ts migrate:latest"
 
 agora basta chamar:
 npm run migrate
 
+para rodar os arquivos de inicialização de dados (seed)
+npm run seed
+
 CORS
 npm install cors 
 npm install @types/cors -D
 
+uplooad de imagens
+npm install multer
+npm install @types/multer -D
+
+--para fazer validação dos dados (celkebrate é uma integração do hapi com o express)
+npm install celebrate
+-- para funcionar o intelisense
+npm install @types/hapi__joi -D
