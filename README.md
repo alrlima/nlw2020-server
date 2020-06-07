@@ -1,70 +1,105 @@
-# nextlevelweek2020
-## REQUISITOS ##
+# Intro
+Next Level Week (NLV) é uma iniciativa da [Rocket Seat](https://rocketseat.com.br/). Um evento 100% online e gratuito que ocorre em uma semana e tem como objetivo acelerar a evolução dos devs participantes para um nível mais elevado de desenvolvimento.
+Nesta versão de 1 a 7 de Junho de 2020 o projeto utilizou NodeJS, React e React-Native.
+
+## Projeto
+A proposta de projeto era o desenvolvimento de um aplicativo para cadastro e consulta de pontos de coletas de produtos recicláveis.
+
+## Pré-requisitos
 - node
 
+## Etapas
+Criando um projeto padrão em node:
+```
 npm init -y
-cria um projeto padrão em node
-
+```
+Instalando o pacote que cuida das rotas
+```
 npm install express
-cuida das rotas
-
 npm install @types/express -D
-
-instalar o type script
+```
+Instalando o type script
+```
 npm install typescript -D
-
-criar arquivo de configuração do type script
+```
+Criando o arquivo de configuração do type script
+```
 npx tsc --init
-
-node arquivo.ts -> isso não funciona pois o node entende apenas arquivo javascript e o arquivo é type script
-
-para rodar o servidor node com type script
+```
+>Node entende apenas arquivo javascript. Para rodar o servidor node lendo arquivos type script, instalar:
+```
 npm install ts-node -D
-
-npx serve para executar um pacote node que foi instalado
+```
+Executando um projeto node
+```
 npx ts-node src/arquivo.ts
+```
+>npx serve para executar um pacote node que foi instalado. O exemplo acima executa um arquivo específico.
 
-agora é só abrir o browser e acessar a rota na porta informada: localhost:3333/users
-
-para não ficar finalizando o servidor a cada mudança para depuração, instalar o ts-node-dev
+Após a execução do arquivo, abra o browser e acesse a rota na porta informada. p.ex: localhost:3333/users
+___
+Para não ficar finalizando o servidor a cada mudança de um arquivo (normalmente usando para depuração), instalar o ts-node-dev:
+```
 npm install ts-node-dev -D
-
-para rodar com watch
+```
+Para rodar o projeto com watch:
+```
 npx ts-node-dev src/server.ts
-
-para não ficar rodando "npx ts-node-dev src/file.ts" toda hora, editar o package.json e adicionar um script para facilitar a vida
-"dev": "npx ts-node-dev src/server.ts"
-
-para executar, rode:
+```
+Para não ficar rodando "npx ts-node-dev src/file.ts" toda hora, editar o package.json e adicionar um script:
+```json
+{
+  "dev": "npx ts-node-dev src/server.ts"
+}
+```
+E agora execute o projeto usando seu script:
+```
 npm run dev
-
-
-knex é um framework sql para vários bancos conhecidos.
+```
+> Você pode criar quantos scripts quiser. Um para dev, outro para test, outro para build, deploy, etc.
+> 
+## Acessando o banco de dados
+Para acesso aos dados, será utilizado o **knex**, um framework sql para vários bancos conhecidos.
 http://knexjs.org/
-
+```
 npm install knex
 npm install sqlite3
-
-npx knex migrate:latest --knexfile knexfile.ts migrate:latest
-
-criado script no package.json para facilitar a criação/atualização de estrutura de banco de dados:
-"migrate": "knex migrate:latest --knexfile knexfile.ts migrate:latest"
-
-agora basta chamar:
+```
+Após criação dos arquivos knex, para criar/atualizar a estrutura de banco de dados, execute:
+```
+npx knex --knexfile knexfile.ts migrate:latest
+```
+Criado script no package.json para facilitar a criação/atualização de estrutura de banco de dados:
+```json
+{
+  "migrate": "knex --knexfile knexfile.ts migrate:latest"
+}
+```
+Executando os arquivos migrate:
+```
 npm run migrate
-
-para rodar os arquivos de inicialização de dados (seed)
+```
+Você também pode criar arquivos de inicialização de dados, chamados seed (veja documentação clicando [aqui](http://knexjs.org/#Seeds-CLI). Para rodar esses arquivos execute:
+```
 npm run seed
-
-CORS
+```
+## CORS
+[Cross-origin resource sharing (CORS ou compartilhamento de recursos de origem cruzada) é uma especificação de uma tecnologia de navegadores que define meios para um servidor permitir que seus recursos sejam acessados por uma página web de um domínio diferente.](https://pt.wikipedia.org/wiki/Cross-origin_resource_sharing)
+```
 npm install cors 
 npm install @types/cors -D
+```
 
-uplooad de imagens
+## Upload de arquivos/imagens
+Para upload, será utilizada a lib multer.
+```
 npm install multer
 npm install @types/multer -D
+```
 
---para fazer validação dos dados (celkebrate é uma integração do hapi com o express)
+## Validação de dados de entrada no servidor
+Para fazer validação dos dados será utilizada a lib do celebrate, que é uma integração do hapi com o express.
+```
 npm install celebrate
--- para funcionar o intelisense
 npm install @types/hapi__joi -D
+```
