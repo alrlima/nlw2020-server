@@ -1,3 +1,5 @@
+<img src="https://img.shields.io/github/languages/count/alrlima/nlw2020-server?style=flat-square" />
+
 # Intro
 [Next Level Week (NLW)](https://nextlevelweek.com) é uma iniciativa da [Rocket Seat](https://rocketseat.com.br/). Um evento 100% online e gratuito que ocorre em uma semana e tem como objetivo acelerar a evolução dos devs participantes para um nível mais elevado de desenvolvimento.
 Nesta versão de 1 a 7 de Junho de 2020 o projeto utilizou NodeJS, React e React-Native.
