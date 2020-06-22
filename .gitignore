@@ -25,3 +25,4 @@ yarn-error.log*
 uploads/*
 !uploads/.gitkeep
 *.sqlite
+/.vscode

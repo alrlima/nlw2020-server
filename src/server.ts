@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 import express from "express";
 import cors from 'cors';
 import routes from './routes';
@@ -17,6 +19,5 @@ app.use('/uploads', express.static(path.resolve(__dirname, '..', 'uploads')));
 
 app.use(errors());
 
-const porta = 3333;
-app.listen(porta);
-console.log("servidor ativo: ", "http://localhost:" + porta);
+app.listen(process.env.HOST_PORT);
+console.log("servidor ativo: ", "http://localhost:" + process.env.HOST_PORT);

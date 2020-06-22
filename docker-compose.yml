@@ -1,0 +1,25 @@
+version: '3.4'
+
+services:
+  nlw_server:
+    # env_file:
+    #   - .env
+    image: nlw_server
+    volumes:
+      # - db:/usr/app/db
+      # - uploads:/usr/app/uploads
+      - type: bind
+        source: ./db
+        target: /usr/app/db
+      - type: bind
+        source: ./uploads
+        target: /usr/app/uploads
+    build: .
+    # environment:
+    #   NODE_ENV: production
+    ports:
+      - "${HOST_PORT}:${CONTAINER_PORT}"
+
+# volumes:
+#   db:
+#   uploads:

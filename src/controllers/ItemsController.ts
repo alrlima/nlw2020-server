@@ -6,7 +6,7 @@ class ItemsController {
     const items = await knex("items").select("*");
     items.map(
       (item) =>
-        (item.imagem_url = "http://192.168.1.35:3333/uploads/" + item.imagem)
+        (item.imagem_url = `${process.env.UPLOAD_URL}util/${item.imagem}`)
     );
 
     return response.json(items);

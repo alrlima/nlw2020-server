@@ -2,7 +2,7 @@ import express from "express";
 import { celebrate, Joi } from "celebrate";
 
 import multer from "multer";
-import multerCOnfig from "./config/multer";
+import multerConfig from "./config/multer";
 
 import ItemsController from "./controllers/ItemsController";
 import PointsController from "./controllers/PointsController";
@@ -12,10 +12,10 @@ const routes = express.Router();
 const itemsController = new ItemsController();
 const pointsController = new PointsController();
 
-const upload = multer(multerCOnfig);
+const upload = multer(multerConfig);
 
 routes.get("/", (request, response) => {
-  return response.send("Bem vindo");
+  return response.send("Bem vindo ao servidor do eColeta!!!");
 });
 
 routes.get("/items", itemsController.index);
