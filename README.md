@@ -7,6 +7,7 @@ Nesta versão de 1 a 7 de Junho de 2020 o projeto utilizou NodeJS, React e React
 
 ## Projeto
 A proposta de projeto era o desenvolvimento de um aplicativo para cadastro e consulta de pontos de coletas de produtos recicláveis.
+> ESTE REPOSITÓRIO REPRESENTA O SERVIDOR (BACKEND) DA APLICAÇÃO
 
 ## Pré-requisitos
 - node

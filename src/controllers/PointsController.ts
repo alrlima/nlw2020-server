@@ -4,7 +4,6 @@ import knex from "../database/connection";
 class PointsController {
   async create(request: Request, response: Response) {
     const {
-      imagem,
       nome,
       email,
       telefone,

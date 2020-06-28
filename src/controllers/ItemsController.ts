@@ -4,7 +4,7 @@ import knex from "../database/connection";
 class ItemsController {
   async index(request: Request, response: Response) {
     const items = await knex("items").select("*");
-    items.map(
+    items.forEach(
       (item) =>
         (item.imagem_url = `${process.env.UPLOAD_URL}util/${item.imagem}`)
     );

@@ -10,10 +10,10 @@ services:
       # - uploads:/usr/app/uploads
       - type: bind
         source: ./db
-        target: /usr/app/db
+        target: /usr/src/app/db
       - type: bind
         source: ./uploads
-        target: /usr/app/uploads
+        target: /usr/src/app/uploads
     build: .
     # environment:
     #   NODE_ENV: production
